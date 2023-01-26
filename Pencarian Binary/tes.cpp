@@ -1,7 +1,7 @@
 #include <iostream>
 #include <math.h>
 using namespace std;
-const int m=8;
+const int m=6;
 int A[m], x;
 int idx1, idx2, indeks;
 bool ketemu;

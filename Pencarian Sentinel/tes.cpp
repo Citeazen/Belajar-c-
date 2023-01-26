@@ -2,7 +2,7 @@
 #include <math.h>
 using namespace std;
 
-#define m 10
+#define m 6
 
 int A[m+1], x, indeks;
 

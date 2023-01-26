@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-const int b=8, N=11;
+const int b=6, N=11;
 int indeks, x, idx, A[N];
 int myhash(int x);
 int main(){

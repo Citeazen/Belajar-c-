@@ -3,21 +3,22 @@ using namespace std;
 
 void Baca_Larik(int M, int A[]);
 void Cetak_Larik(int M, int A[]);
-void sort_Minimax(int M, int A[]);
+void shell_Sort(int M, int A[]);
 
-int main (){
+int main(){
     const int N=6;
     int A[N];
     int pilihan;
 
-    Baca_Larik (N,A);
+    Baca_Larik(N,A);
     cout << "Larik sebelum di Sort : \n";
-    Cetak_Larik (N,A);
+    Cetak_Larik(N,A);
 
     // Lakukan Sort
-    sort_Minimax(N,A);
+    shell_Sort(N,A);
     cout << "Setelah di Sort : \n";
     Cetak_Larik(N,A);
+
     system("PAUSE");
     return 0;
 }
@@ -40,20 +41,25 @@ void Cetak_Larik(int M, int A[]){
     }
     cout << endl << endl;
 }
+void shell_Sort(int M, int A[]){
+    int tempo;
+    int i, j, k;
+    bool urut;
 
-void sort_Minimax(int M,int A[]){
-    int imax, temp;
-    int putaran, idx;
-
-    imax = M-1;
-    for (putaran=0; putaran < (M-1); putaran++){
-        for (idx=0; idx<(M-putaran); idx++){
-            if (A[idx] > A[imax]) {
-                temp = A[imax];
-                A[imax] = A[idx];
-                A[idx]=temp;
+    k = M-1;
+    while (k>0){
+        k = k/2;
+        do {
+            urut = true;
+            for (j=0; j<M-k; j++){
+                i = j + k;
+                if (A[i] < A[j]){
+                    tempo = A[i];
+                    A[i] = A[j];
+                    A[j] = tempo;
+                    urut = false;
+                }
             }
-        }
-        imax = imax = 1;
+        } while (!urut);
     }
 }
